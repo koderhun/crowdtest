@@ -1,0 +1,13 @@
+$fontfamily-base: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+  Cantarell, 'Helvetica Neue', sans-serif;
+$images: '../images/';
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+)
+//Пример обращения к переменной
+// max-width: map-get($grid-breakpoints, "xl");
