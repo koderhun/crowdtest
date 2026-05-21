@@ -4,6 +4,7 @@
   "author": "another",
   "license": "MIT",
   "scripts": {
+    "dev": "gulp",
     "start": "gulp",
     "build": "gulp prod --production",
     "build:views": "gulp views --production",

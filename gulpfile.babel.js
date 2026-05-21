@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-import gulp from 'gulp';
+import gulp from 'gulp'
 
-const requireDir = require('require-dir');
+const requireDir = require('require-dir')
 
 const paths = {
   views: {
@@ -46,23 +46,31 @@ const paths = {
   deploy: {
     src: './dist/**/*',
   },
-};
+}
 
-requireDir('./gulp-tasks/');
+requireDir('./gulp-tasks/')
 
-export { paths };
+export {paths}
 
 export const development = gulp.series(
   'clean',
   'views',
-  gulp.parallel(['styles', 'scripts', 'images', 'webp', 'fonts', 'favicons']),
+  gulp.parallel(['styles', 'scripts', 'images', 'fonts', 'favicons']),
   gulp.parallel('serve'),
-);
+)
 
 export const prod = gulp.series(
   'clean',
   'views',
-  gulp.parallel(['styles', 'scripts', 'images', 'webp', 'fonts', 'favicons', 'gzip']),
-);
+  gulp.parallel([
+    'styles',
+    'scripts',
+    'images',
+    'webp',
+    'fonts',
+    'favicons',
+    'gzip',
+  ]),
+)
 
-export default development;
+export default development
