@@ -3,6 +3,7 @@ $img: '../images/';
 :root {
   --brand-white: #ffffff;
   --brand-red: #f54932;
+  --brand-yellow: #fbce51;
   --brand-gray: #d0d0d0;
   --brand-blue: #3057a2;
   --brand-dark-50: #313131;
@@ -163,9 +164,23 @@ h6 {
   text-align: center;
   border: 2px solid var(--brand-dark-400);
 
+  &:hover,
+  &:focus {
+    background-color: var(--brand-yellow);
+    border-color: var(--brand-yellow);
+    color: var(--brand-white);
+  }
+
   &--outline {
     background-color: transparent;
     color: var(--brand-dark-400);
+
+    &:hover,
+    &:focus {
+      background-color: var(--brand-dark-400);
+      color: var(--brand-white);
+      border-color: var(--brand-dark-400);
+    }
   }
 
   &--blue {
@@ -175,11 +190,13 @@ h6 {
     background-color: transparent;
     border-color: var(--brand-blue);
     color: var(--brand-blue);
-  }
 
-  &:hover,
-  &:focus {
-    opacity: 0.8;
+    &:hover,
+    &:focus {
+      background-color: var(--brand-blue);
+      color: var(--brand-white);
+      border-color: var(--brand-blue);
+    }
   }
 }
 
@@ -197,6 +214,7 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    gap: 38px;
     margin: 0;
     list-style-type: disc;
     animation: slide 40s linear infinite;
@@ -231,6 +249,7 @@ h6 {
     flex-grow: 2;
 
     img {
+      height: 100%;
       max-width: 100%;
       object-fit: cover;
     }
@@ -268,8 +287,12 @@ h6 {
   &__line {
     display: flex;
     gap: 16px;
-    padding: 16px 0;
     border-bottom: 2px solid var(--brand-gray);
+
+    @media (max-width: 1200px) {
+      flex-direction: column;
+      gap: 0;
+    }
   }
 
   dt {
@@ -277,12 +300,22 @@ h6 {
     width: 100%;
     max-width: 307px;
     height: 100%;
+    padding: 16px 0;
+    @media (max-width: 1200px) {
+      border: 0;
+      max-width: 100%;
+      padding: 12px 0 12px 0;
+    }
   }
 
   dd {
+    padding: 16px 0;
     font-weight: bold;
     line-height: 1;
     margin: 0;
+    @media (max-width: 1200px) {
+      padding: 0 0 12px 0;
+    }
   }
 }
 
@@ -302,6 +335,7 @@ h6 {
 }
 
 .section3 {
+  overflow: hidden;
   padding-top: 178px;
   padding-bottom: 20px;
 }
@@ -347,7 +381,7 @@ h6 {
 
     &:nth-child(3) {
       grid-row: span 2;
-      height: 244px;
+      min-height: 244px;
     }
 
     &:nth-child(7) {
@@ -468,13 +502,15 @@ h6 {
     color: white;
     transition: all 0.2s ease;
 
-    &:hover,
-    &:focus {
-      opacity: 0.8;
+    &.disabled,
+    &[disabled] {
+      background-color: #d6d6d6;
+      cursor: not-allowed;
     }
 
-    &:active {
-      opacity: 0.6;
+    &:hover,
+    &:focus {
+      background-color: var(--brand-yellow);
     }
 
     &--next {
